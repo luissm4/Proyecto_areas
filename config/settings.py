@@ -1,1 +1,2 @@
-DB_PATH = "database/areas_protegidas.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/areas_protegidas'
+
