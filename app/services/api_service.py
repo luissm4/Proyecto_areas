@@ -1,5 +1,11 @@
-from app.controllers.area_dao import guardar_area
+import requests
+from config.settings import API_URL
 
-def procesar_datos_api(datos_api):
-    for item in datos_api:
-        guardar_area(item)
+def obtener_datos_api():
+    try:
+        response = requests.get(API_URL)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error al obtener los datos: {e}")
+        return []
