@@ -1,20 +1,21 @@
 # Sistema de Gestión de Áreas Protegidas de Colombia
 
 Proyecto realizado por: Luis Muñoz
-Ingeniería de Sistemas — Segundo corte
+Ingeniería de Sistemas — tercer corte
 Asignatura - Desarrollo de Aplicaciones con Acceso a Datos
-Versión actual: Entrega 1 (configuración inicial)
+Versión actual: Entrega 3 (configuración inicial)
 
 ## Objetivo del Proyecto Principal 
 Construir una aplicación en Python que consuma datos abiertos de Colombia desde una API pública, los procese y los guarde en una base de datos relacional. Todo esto aplicando el patrón de diseño **MVC**.
 
-## Objetivo del Proyecto
-Crear un sistema de gestión que permita consultar, almacenar y trabajar con los datos de las **Áreas Protegidas de Colombia** utilizando Python. Para esta Entrega 1, se añade:
+## Objetivo de la entrega 2
 
-- La configuración básica del entorno.
-- La conexión a la API.
-- La obtención y visualización de los datos.
-- La organización del proyecto bajo la estructura MVC indicadas.
+Implementar una solución funcional que:
+
+- Consuma datos desde el dataset abierto de Áreas Protegidas.
+- Guarde estos datos en una base de datos **MySQL**.
+- Permita al usuario listar la información almacenada mediante un menú interactivo.
+- Use una arquitectura clara, modular y mantenible, aplicando el patrón **Modelo–Vista–Controlador (MVC)**.
 
 Esta es solo la primera etapa. Más adelante se incorporarán operaciones CRUD y almacenamiento en base de datos.
 
@@ -24,9 +25,16 @@ Se eligió el dataset público llamado **Áreas protegidas de Colombia**, dispon
 
 [https://www.datos.gov.co/resource/xpgq-dbtk.json](https://www.datos.gov.co/resource/xpgq-dbtk.json)
 
-Este recurso contiene información sobre áreas naturales protegidas, incluyendo nombre del área, municipio, año de declaratoria, área total en hectáreas, entre otros.
+Este recurso contiene información sobre áreas naturales protegidas
 
+- Nombre del área protegida
+- Municipio
+- Área declarada en la jurisdicción
+- Área total (ha)
+- Año de declaratoria
+- Información sobre plan de manejo y acuerdos
 
+  
 ## Estructura del Proyecto
 El proyecto se organiza de la siguiente manera, cumpliendo con la indicacion modular requerida:
 
@@ -53,20 +61,20 @@ proyecto_areas/
 
 ### Descripción breve de cada carpeta
 - `controllers/`: Coordinan la lógica entre vista y modelo.
-- `models/`: Lógica de los datos.
-- `views/`: Encargada de mostrar información.
-- `services/`: Donde se encuentra el `APIClient`, encargado de consumir la API.
-- `config/`: Configuracion DB
-- `database/`: Carpeta donde estará la base de datos SQLite.
-- `tests/`: Script de prueba inicial para comprobar conexión con la API.
+- `models/`: defina la estructura de los datos.
+- `views/`: Muestra los datos de forma legible para el usuario.
+- `services/`: Consume los datos de la API externa.
+- `config/`: Contiene configuración de conexión a la base de datos
+- `database/`: Implementa la conexión a MySQL.
+- `tests/`: Archivo `test_api.py` que actúa como punto de entrada con menú CLI.
 
 
 ## Configuración del entorno
-Para poder correr el proyecto, se deben instalar las dependencias listadas en el archivo `requirements.txt`.
 
 
 ### Requisitos
 - Python 3.8+
+- MySql
 
 
 ### Instalación
