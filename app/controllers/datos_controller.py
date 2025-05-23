@@ -1,25 +1,21 @@
-from app.models.datos_model import AreaProtegida, db
+from app.services.api_service import obtener_datos_api
+from app.models.datos_model import DatosModel
+from app.views.view import mostrar_datos
 
-def crear_area(data):
-    nueva_area = AreaProtegida(**data)
-    db.session.add(nueva_area)
-    db.session.commit()
-    return nueva_area
+modelo = DatosModel()
 
-def obtener_areas():
-    return AreaProtegida.query.all()
+def procesar_datos():
+    datos_api = obtener_datos_api()
+    for item in datos_api:
+        modelo.guardar_dato(item)
+    return modelo.obtener_todos()
 
-def actualizar_area(id, data):
-    area = AreaProtegida.query.get(id)
-    if area:
-        for key, value in data.items():
-            setattr(area, key, value)
-        db.session.commit()
-    return area
+def listar_datos():
+    datos = modelo.obtener_todos()
+    mostrar_datos(datos)
 
-def eliminar_area(id):
-    area = AreaProtegida.query.get(id)
-    if area:
-        db.session.delete(area)
-        db.session.commit()
-    return area
+def actualizar_dato(id, nuevos_datos):
+    modelo.actualizar_dato(id, nuevos_datos)
+
+def eliminar_dato(id):
+    modelo.eliminar_dato(id)
