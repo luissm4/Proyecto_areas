@@ -79,3 +79,11 @@ def actualizar_dato(no, campo, valor):
     conexion.commit()
     cursor.close()
     conexion.close()
+
+def eliminar_dato(no):
+    conexion = obtener_conexion()
+    cursor = conexion.cursor()
+    cursor.execute("DELETE FROM areas_protegidas WHERE no = %s", (no,))
+    conexion.commit()
+    cursor.close()
+    conexion.close()
