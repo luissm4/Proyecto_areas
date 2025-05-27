@@ -68,9 +68,9 @@ pip install -r requirements.txt
 ##  Pruebas realizadas(test_api.py)
 Al ejecutarlo, hace el uso correcto de CRUD permitiendo al usuario interactuar para que pueda elegirr una opcion dentro de los campos que se observan en pantalla. 
  
-
+================================ ===
 === Sistema de Áreas Protegidas ===
-
+================================ ===
 1. Cargar datos desde la API           <--esta opcion uno hace un llamado a la base de datos abierta y la guarda en MySql.
 2. Listar datos                        <--esta opcion permite visualisar en consonsola la lista de los datos.
 3. Crear nuevo dato                    <--esta opcion te permite crear un nuevo dato llenando los campos. 
