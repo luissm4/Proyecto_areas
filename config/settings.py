@@ -5,4 +5,4 @@ DB_CONFIG = {
     'database': 'areas_protegidas'
 }
 
-API_URL = 'https://www.datos.gov.co/resource/xpgq-dbtk.json'
+API_URL = 'https://raw.githubusercontent.com/luissm4/datos-areas-protegidas/refs/heads/main/areas_protegidas.json'
