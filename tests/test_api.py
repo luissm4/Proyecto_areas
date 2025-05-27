@@ -1,18 +1,22 @@
 from app.controllers.datos_controller import listar_datos, procesar_datos, crear_dato, actualizar, eliminar
 
 def menu():
+    print("\n===================================")
     print("\n=== Sistema de Áreas Protegidas ===")
+    print("\n===================================")
     print("1. Cargar datos desde la API")
     print("2. Listar datos")
     print("3. Crear nuevo dato")
     print("4. Actualizar dato")
     print("5. Eliminar dato")
     print("6. Salir")
+    print("\n===================================")
 
 def ejecutar():
     while True:
         menu()
         opcion = input("Seleccione una opción: ")
+        print("\n===================================")
         if opcion == "1":
             procesar_datos()
         elif opcion == "2":
