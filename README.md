@@ -7,7 +7,7 @@ Analizar datos de areas protegidas reales que han sido invadidas en colombia por
 
 
 ## Dataset Seleccionado
-Se eligió el dataset público llamado **Áreas protegidas de Colombia**, disponible en el portal oficial de datos abiertos del gobierno:
+Se eligió el dataset público llamado Áreas protegidas de Colombia, disponible en el portal oficial de datos abiertos del gobierno:
 
 (https://raw.githubusercontent.com/luissm4/datos-areas-protegidas/refs/heads/main/areas_protegidas.json)
 
@@ -27,23 +27,16 @@ El proyecto se organiza de la siguiente manera, cumpliendo con las indicaciones:
 
 proyecto_areas/
 
-├──app/
-    ├── controllers/
-    │   └── datos_controller.py
-    ├── models/
-    │   └── datos_model.py
-    ├── views/
-    │   └── view.py
-    ├── services/
-        └── api_service.py
-├── config/
-    └── settings.py
-├── database/
-│   └── conexion.py
-├── test/
-    └── test_api.py
-├── requirements.txt
-└── README.md
++app/
+-controllers/datos_controller.py
+-models/datos_model.py
+-views/view.py
+-Main.py
++config/settings.py
++database/conexion.py
++test/test_api.py
++requirements.txt
++README.md
 
 
 ### Descripción breve de cada carpeta
