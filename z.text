@@ -1,0 +1,101 @@
+# 🌿 Sistema de Gestión de Áreas Protegidas de Colombia
+
+Este proyecto permite gestionar un conjunto de datos sobre áreas protegidas de Colombia, cargados desde un archivo JSON remoto. Está desarrollado con Python, arquitectura MVC y persistencia en MySQL.
+
+---
+
+## 📁 Estructura del Proyecto
+proyecto_areas/
+├── app/
+│ ├── controllers/ # Controladores (coordinan vista y modelo)
+│ ├── models/ # Lógica de acceso a datos (DAO)
+│ ├── views/ # Interfaz CLI (entrada/salida)
+│ └── main.py # Punto de entrada
+├── config/
+│ └── settings.py # Configuración: DB y URL del dataset
+├── database/
+│ └── conexion.py # Conexión a MySQL
+├── tests/
+│ └── test_modelo.py # Pruebas unitarias
+└── requirements.txt # Dependencias
+
+
+---
+
+## ⚙️ Tecnologías Utilizadas
+
+- Python 3.10+
+- MySQL
+- `mysql-connector-python`
+- `requests`
+- `unittest`
+
+---
+
+## 🧠 Arquitectura
+
+- **Modelo (DAO)**: Interactúa directamente con la base de datos.
+- **Vista (CLI)**: Menús y formularios por consola.
+- **Controlador**: Recibe entradas del usuario y coordina la lógica.
+
+---
+
+## 🚀 Instrucciones de Instalación
+
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tu_usuario/proyecto_areas.git
+   cd proyecto_areas
+
+Crea la base de datos en MySQL:
+
+sql
+Copiar
+Editar
+CREATE DATABASE areas_protegidas;
+
+USE areas_protegidas;
+
+CREATE TABLE areas_protegidas (
+    no INT PRIMARY KEY,
+    area_protegida VARCHAR(255),
+    tipo_area VARCHAR(100),
+    ubicacion_latitud_longitud VARCHAR(50),
+    invasiones_previas INT,
+    año_ultima_invasion YEAR,
+    proximidad_urbana VARCHAR(20),
+    nivel_alerta VARCHAR(20)
+);
+Instala las dependencias:
+
+bash
+Copiar
+Editar
+pip install -r requirements.txt
+Verifica tu configuración en config/settings.py:
+
+python
+Copiar
+Editar
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': '',
+    'database': 'areas_protegidas'
+}
+
+API_URL = 'https://raw.githubusercontent.com/tu_usuario/tu_repositorio/main/areas_protegidas.json'
+▶️ Ejecución del Proyecto
+Desde la raíz del proyecto:
+
+bash
+Copiar
+Editar
+python -m app.main
+✅ Pruebas Unitarias
+bash
+Copiar
+Editar
+python -m unittest discover tests
+🧾 Licencia
+Este proyecto está bajo licencia MIT. Libre para uso académico y personal.
