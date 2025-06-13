@@ -1,12 +1,16 @@
+# Importa las funciones del modelo para manipulación de datos y la vista para interacción con el usuario
 from app.models.datos_model import guardar_datos, obtener_datos, insertar_dato, modificar_dato, eliminar_por_id
 from app.views import view
 
+# Controlador que guarda los datos desde la API
 def procesar_datos():
     guardar_datos()
 
+# Controlador que retorna todos los datos almacenados
 def listar_datos():
     return obtener_datos()
 
+# Controlador que permite crear un nuevo registro a partir de los datos solicitados al usuario
 def crear_dato():
     dato = {
         "no": view.solicitar_entero("número de ID"),
@@ -21,6 +25,7 @@ def crear_dato():
     insertar_dato(dato)
     view.mostrar_mensaje("Creado exitosamente")
 
+# Controlador que permite actualizar un campo específico de un registro por ID
 def actualizar_dato():
     no = view.solicitar_entero("número que va actualizar")
     campo = view.solicitar_opcion_actualizacion()
@@ -31,6 +36,7 @@ def actualizar_dato():
     else:
         view.mostrar_mensaje("Campo no válido.")
 
+# Controlador que elimina un dato por su ID
 def eliminar_dato():
     no = view.solicitar_entero("número que va eliminar")
     eliminar_por_id(no)
