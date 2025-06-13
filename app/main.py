@@ -1,3 +1,4 @@
+# Importa las funciones del controlador necesarias para operar el sistema
 from app.controllers.datos_controller import (
     procesar_datos,
     listar_datos,
@@ -7,6 +8,7 @@ from app.controllers.datos_controller import (
 )
 from app.views import view
 
+# Función principal que contiene el loop del sistema
 def main():
     while True:
         opcion = view.mostrar_menu()
@@ -32,5 +34,6 @@ def main():
         else:
             view.mostrar_mensaje("Opción invalida")
 
+# Punto de entrada del programa
 if __name__ == "__main__":
     main()
