@@ -1,3 +1,4 @@
+# Muestra el menú principal al usuario y retorna la opción seleccionada como string
 def mostrar_menu():
     print("------------------------------------")
     print("Sistema de Áreas Protegidas")
@@ -11,13 +12,16 @@ def mostrar_menu():
     print("------------------------------------")
     return input("Seleccione una opción: ")
 
+# Muestra en consola una lista de áreas protegidas con todos sus campos
 def mostrar_areas(lista):
     for area in lista:
         print(f"{area['no']} - {area['area_protegida']} - {area['tipo_area']} - {area['ubicacion_latitud_longitud']} - {area['invasiones_previas']} - {area['año_ultima_invasion']} - {area['proximidad_urbana']} - {area['nivel_alerta']}")
 
+# Solicita al usuario ingresar un valor para un campo específico
 def solicitar_dato(campo):
     return input(f"Ingrese {campo}: ")
 
+# Solicita un número entero validado al usuario
 def solicitar_entero(campo):
     while True:
         try:
@@ -25,9 +29,11 @@ def solicitar_entero(campo):
         except ValueError:
             print("Por favor digite números.")
 
+# Muestra un mensaje informativo en consola
 def mostrar_mensaje(mensaje):
     print(f">>> {mensaje}")
 
+# Solicita al usuario seleccionar qué campo desea actualizar, retorna el nombre del campo
 def solicitar_opcion_actualizacion():
     print("Seleccione el campo a actualizar:")
     print("------------------------------------")
