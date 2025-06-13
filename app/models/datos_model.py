@@ -1,7 +1,9 @@
+# Importa la librería requests, URL de la API y función para obtener una conexión a la base de datos MySQL
 import requests
 from config.settings import API_URL
 from database.conexion import obtener_conexion
 
+# Función que obtiene los datos desde la API y los guarda en la base de datos
 def guardar_datos():
     response = requests.get(API_URL)
     if response.status_code != 200:
@@ -24,6 +26,7 @@ def guardar_datos():
     cursor.close()
     conexion.close()
 
+# Función que obtiene todos los datos almacenados en la tabla `areas_protegidas`
 def obtener_datos():
     conexion = obtener_conexion()
     cursor = conexion.cursor(dictionary=True)
@@ -33,6 +36,7 @@ def obtener_datos():
     conexion.close()
     return resultados
 
+# Función que inserta un nuevo registro manualmente en la base de datos
 def insertar_dato(dato):
     conexion = obtener_conexion()
     cursor = conexion.cursor()
@@ -50,6 +54,7 @@ def insertar_dato(dato):
     cursor.close()
     conexion.close()
 
+# Función que actualiza un campo específico de un registro identificado por 'no'
 def modificar_dato(no, campo, valor):
     campos_validos = [
         "area_protegida", "tipo_area", "ubicacion_latitud_longitud",
@@ -66,6 +71,7 @@ def modificar_dato(no, campo, valor):
     cursor.close()
     conexion.close()
 
+# Función que elimina un registro por su número identificador 'no'
 def eliminar_por_id(no):
     conexion = obtener_conexion()
     cursor = conexion.cursor()
