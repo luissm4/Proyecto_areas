@@ -1,9 +1,12 @@
+# Importa el módulo unittest, modelo de datos que se va a probar y función que proporciona la conexión a la base de datos
 import unittest
 from app.models import datos_model
 from database.conexion import obtener_conexion
 
+# Clase de pruebas que hereda de unittest.TestCase
 class TestModeloDatos(unittest.TestCase):
 
+    # Se ejecuta antes de cada prueba
     def setUp(self):
         self.conexion = obtener_conexion()
         self.cursor = self.conexion.cursor()
@@ -14,6 +17,7 @@ class TestModeloDatos(unittest.TestCase):
         """)
         self.conexion.commit()
 
+    # Se ejecuta después de cada prueba
     def tearDown(self):
         self.cursor.execute("DELETE FROM areas_protegidas WHERE no = 29")
         self.cursor.execute("DELETE FROM areas_protegidas WHERE no = 30")
@@ -21,12 +25,14 @@ class TestModeloDatos(unittest.TestCase):
         self.cursor.close()
         self.conexion.close()
 
+    # Prueba que el modelo actualiza correctamente el nivel_alerta de un registro existente
     def test_actualizar_dato(self):
         datos_model.modificar_dato(29, "nivel_alerta", "Alta")
         self.cursor.execute("SELECT nivel_alerta FROM areas_protegidas WHERE no = 29")
         resultado = self.cursor.fetchone()
         self.assertEqual(resultado[0], "Alta")
 
+    # Prueba que el modelo inserta correctamente un nuevo dato
     def test_guardar_dato(self):
         dato = {
             "no": 30,
